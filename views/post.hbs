@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css" type="text/css">
+        <link rel="stylesheet" href="post.css" type="text/css">
+        <link rel="stylesheet" href="postcreate.css" type="text/css"> 
+
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="myscript.js"></script>
+    </head>
+
+    <body>
+        <header>{{>header}}</header>
+
+            <section class="postcontainer" id="containerpost">
+                <div class="postcontent">
+                    <div class="realpostcontent">
+                        {{#each dogpost}}
+                        <div class="titlepost"> Details </div>
+
+                        <div class="dogpicture">
+                            <img class="mainpic" src="{{picture}}"><br>
+                            <div class="favoritepost"><div id="faviconpost" onclick="favoritepost()" ondblclick="unfavoritepost()"></div>{{favecount}}</div>
+                        </div>
+
+                        <div class="postdetails">
+                            <span class="reqlabel">Name:</span> <span class="reqvalue">{{dogname}}</span><br><br>
+                            <span class="reqlabel">Gender:</span> <span class="reqvalue">{{gender}}</span><br><br>
+                            <span class="reqlabel">Breed:</span> <span class="reqvalue">{{breed}}</span><br><br>
+                            <span class="reqlabel">Age:</span> <span class="reqvalue">{{dogage}}</span><br><br>
+                            <span class="reqlabel">Location:</span> <span class="reqvalue">{{location}}</span><br><br>
+                            <span class="reqlabel">Description:</span> <span class="reqvalue">{{dogdesc}}</span><br><br>
+                            <button type="button" class="button bblue" onclick="openform()">Play With Me!</button><br><br>
+                            <span class="reqlabel">Posted by:</span> <a href="/profile-{{username}}" class="reqlink">{{username}}</a><br><br>
+                            <span class="reqlabel">Date Posted:</span> <span class="reqvalue">{{date}}</span><br><br>
+                            <a href="/prevpage" class="button bpurple" style="font-size: smaller;">Back</a>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>  
+            </section>
+            
+            <div class="popup" id="popupform">
+                <div class="popupcontent">
+                    <div class="title"> Request Form </div>
+
+                    <form class="formcontent" method="POST" action="sendrequest">
+                        <select class="postinput" name="dogownername" style="display: none;"> 
+                            {{#each dogpost}}<option value="{{username}}"> {{username}} </option>{{/each}}
+                        </select>
+                        Your Dog's Name<select class="postinput" name="dog_id"> 
+                            <option value="blank">-</option>
+                            {{#each dogpostreq}}<option value="{{_id}}"> {{dogname}} </option>{{/each}}
+                        </select>
+                        Venue <input type="text" class="postinput" name="venue"> <br>
+                        Date <input type="date" class="postinput smallwidth" name="date"> <br> 
+                        Time <input type="time" class="postinput smallwidth" name="time"> <br> 
+                        <div class="postbuttons floatright">
+                            <button  type="button" class="button bpurple" onclick="closeform()">Cancel</button>
+                            <input class="button bblue" type="submit" value="Send Request">
+                        </div>
+                   </form>
+                </div>
+              </div>
+
+        <footer>{{>footer}}</footer>
+
+        <script>
+            function closeform(){
+                document.getElementById("popupform").style.display = "none"
+                document.getElementById("containerpost").style.opacity = 1
+                $('header').css("opacity", "1")
+                $('footer').css("opacity", "1")
+                
+            }
+
+            function openform(){
+                document.getElementById("popupform").style.display = "block"
+                document.getElementById("containerpost").style.opacity = 0.5
+                $('header').css("opacity", "0.5")
+                $('footer').css("opacity", "0.5")
+            }
+
+            function favoritepost(){
+                console.log("fave")
+                document.getElementById("faviconpost").style.backgroundImage = "url('sprites/fave.png')"; 
+            }
+
+             function unfavoritepost(){
+                console.log("unfave")
+                document.getElementById("faviconpost").style.backgroundImage = "url('sprites/unfave.png')"; 
+            }
+        </script>
+    </body>
+</html>

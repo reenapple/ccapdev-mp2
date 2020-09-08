@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css" type="text/css"> 
+        <link rel="stylesheet" href="postcreate.css" type="text/css"> 
+        
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="myscript.js"></script>
+    </head>
+
+    <body>
+        <header>
+            {{>header}}
+        </header>
+
+        <section class="smallcontainer">
+            <div class="content">
+                <div class="title"> Create a New Post </div>
+                <br><br> 
+
+                <div class="postform">
+                    <form method="POST" action="createpost"> 
+                        
+                        {{#if error_dogname}}
+                            <div class="error">{{error_dogname}}</div>
+                        {{/if}}
+                        Dog name{{#if e}}<span class="rederr">*</span>{{/if}} <input type="text" class="postinput" name="dogname"> <br> 
+
+                        {{#if error_breed}}
+                            <div class="error">{{error_breed}}</div>
+                        {{/if}}
+                        Breed{{#if e}}<span class="rederr">*</span>{{/if}} <input type="text"  class="postinput" name="breed"> <br> 
+
+                        {{#if error_location}}
+                            <div class="error">{{error_location}}</div>
+                        {{/if}}
+                        Location{{#if e}}<span class="rederr">*</span>{{/if}} <input type="text" class="postinput" name="location"> <br> 
+
+                        {{#if error_dogage}}
+                            <div class="error">{{error_dogage}}</div>
+                        {{/if}}
+                        Age{{#if e}}<span class="rederr">*</span>{{/if}} <input type="number" class="postinput smallwidth" name="dogage" min="1"> <br> 
+                        
+                        {{#if error_dogender}}
+                            <div class="error">{{error_dogender}}</div>
+                        {{/if}}
+                        Gender{{#if e}}<span class="rederr">*</span>{{/if}} <select class="postinput smallwidth" name="dogender"> 
+                            <option value="blank">-</option>
+                            <option value="female"> Female </option>
+                            <option value="male"> Male </option>
+                        </select>
+                        <br> 
+
+                        Short Description <textarea rows = "5" class="postinput bigheight" name="dogdesc"></textarea><br>
+                        
+                        Upload an Image <input type="file" class="postinput smallwidth" name="postpic"> 
+
+                        <div class="postbuttons floatright">
+                            <a href="cancel" class="button bpurple">Cancel</a> 
+                            <input class="button bblue" type="submit" value="Post">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            {{>footer}}
+        </footer>
+
+    </body>
+</html>

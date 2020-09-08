@@ -1,0 +1,18 @@
+.sameline{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "line1left line1right"
+    "line2left line2right";
+}
+.line1left{
+    grid-area: line1left;
+}
+.line1right{
+    grid-area: line1right;
+}
+.line2left{
+    grid-area: line2left;
+}
+.line2right{
+    grid-area: line2right;
+}

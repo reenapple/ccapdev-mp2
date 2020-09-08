@@ -1,0 +1,17 @@
+<nav class="homeheader">
+    <ul class="navul">
+        <li class="navleft floatleft"><a class="homenavlink" href="home"><div id="navicon"></div></a></li>
+        <li class="navleft floatleft"><a class="homenavlink" href="home">Home</a></li>
+        <li class="navleft floatleft"><a class="homenavlink" href="browse">Browse Dogs</a></li>
+        <li class="navleft floatleft"><a class="homenavlink" href="postcreate">Create New Post</a></li>
+        <li class="navleft floatleft"><a class="homenavlink" href="requests-sent">My Playdates</a></li>
+        {{#unless username}}
+            <li class="navright floatright"><a class="button bpurple" href="register">Sign up</a></li>
+            <li class="navright floatright"><a class="homenavlink" href="login">Login</a></li>
+        {{/unless}}
+        {{#if username}}
+            <li class="navright floatright"><a class="homenavlink" href="logout">Logout</a></li>
+            <li class="navright floatright"><a class="homenavlink" href="profile-{{username}}">{{username}}</a></li>
+        {{/if}}
+    </ul>
+</nav>

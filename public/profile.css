@@ -1,0 +1,43 @@
+.profilecontainer{
+    background-color: white;
+    border-radius: 6px;
+    padding: 22px;
+    box-shadow: 0 10px 40px -14px rgba(0,0,0,0.25);
+    grid-area: content;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-areas:". . . button"
+                        "pic pic details details";
+}
+.profilecontainer > div {
+    margin: 10px;
+}
+.buttoncontainer{
+    grid-area: button;
+}
+.imgcontainer{
+    grid-area: pic;
+    display: block;
+    margin: auto;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 1px solid rgb(170, 170, 170);
+    overflow: hidden;
+}
+.imguser{
+    object-fit: cover;
+    background-size: 100%;
+    width: 220px;
+    height: 220px;
+}
+.detailscontainer{
+    grid-area: details;
+    margin: auto;
+    padding-left: 20px;
+}
+
+.desc{
+    text-align: justify;
+}

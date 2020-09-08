@@ -1,0 +1,592 @@
+/*sources:
+    https://www.w3schools.com/css/css_navbar_horizontal.asp
+    https://www.flaticon.com/
+    https://fonts.google.com/
+    https://cssgradient.io/
+    https://gradientbuttons.colorion.co/
+    https://codepen.io/Katiae/pen/wdXpOY
+*/
+@font-face {
+    font-family: "body";
+    src: url("fonts/Quicksand-Regular.ttf");
+}
+@font-face {
+    font-family: "heading";
+    src: url("fonts/GTWalsheimPro-Medium.ttf");
+}
+@font-face {
+    font-family: "title";
+    src: url("fonts/GTWalsheimPro-Bold.ttf");
+}
+
+html, body{
+    min-height: 100%;       
+    min-width: 800px;
+    padding:0px;
+    margin:0px;
+    font-family: 'body';
+    color: black;
+    background-image: linear-gradient(to bottom right, rgb(169, 165, 245) 10%, rgb(255, 200, 195));
+}
+
+/*colors*/
+.purple{
+    color: rgb(214, 110, 192);
+}
+.blue{
+    color: rgb(139, 178, 236);
+}
+.red{
+    color: rgb(243, 163, 152);
+}
+
+/*fonts*/
+.body{
+    font-family: 'body';
+}
+.heading{
+    font-size: 22px;
+    font-family: 'heading'
+}
+.title{
+    font-size: 35px;
+    font-family: 'title';
+}
+
+/*font designs*/
+.underline{
+    box-shadow: 0 2px 0px rgb(203, 170, 224);
+}
+.underline1{
+    box-shadow: 0 2px 0px rgb(243, 161, 202);
+}
+.center{
+    text-align: center;
+}
+.justify{
+    text-align: justify;
+}
+
+/*buttons*/
+.button{
+    font-family: 'heading';
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    color: white;
+
+    border-radius: 50px;
+    padding: 10px 35px;
+    background-size: 200% auto;
+    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+    transition: 0.5s;
+}  
+.button:hover{
+    background-position: right center;
+    cursor: pointer;
+}
+.bpurple{
+    background-image: linear-gradient(to right, rgb(214, 110, 192) 0%, rgb(255, 200, 195) 51%, rgb(214, 110, 192) 100%);
+}
+.bred{
+    background-image: linear-gradient(to right, rgb(243, 163, 152) 0%, rgb(255, 215, 170) 51%, rgb(243, 163, 152) 100%);
+}
+.bblue{
+    background-image: linear-gradient(to right, rgb(142, 177, 255) 0%, rgb(164, 222, 255) 51%, rgb(142, 177, 255) 100%);
+}
+/*positions*/
+.floatright{
+    float:right;
+}
+.floatleft{
+    float:left;
+}
+
+/*containers*/
+.container{
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 90% auto;   
+    grid-template-areas: ". content .";
+    min-height: 90%;
+}
+.content {
+    background-color: white;
+    border-radius: 6px;
+    padding: 30px;
+    box-shadow: 0 10px 40px -14px rgba(0,0,0,0.25);
+    
+    margin-top: 80px;
+    grid-area: content;
+    margin-bottom: 30px;
+}
+.smallcontainer{
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 600px auto;   
+    grid-template-areas: ". content .";
+    min-height: 90%;
+}
+.smallestcontainer{
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 500px auto;   
+    grid-template-areas: ". content .";
+    min-height: 50%;
+}
+
+/*header start*/
+nav.homeheader{
+    width: 100%;
+    min-width: 800px;
+    height: 60px;
+    position: fixed;
+    z-index: 1;
+    transition: all 0.5s ease;
+}
+.homenavlink{
+    font-family: 'heading';
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    margin: 10px;
+    transition: all 0.5s ease;
+}
+.homenavlink:hover{
+    color: black;
+}
+nav.homeheader.scrolled{
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+}
+.homenavlink.scrolled{
+    color: black;
+}
+.homenavlink.scrolled:hover{
+    color: rgb(214, 110, 192);
+}
+.navul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    display: inline;
+    align-items: center;
+}
+.navleft, .navright{
+    padding: 20px 5px;
+}
+#navicon{
+    background-image: url("sprites/icon.png");
+    background-size: 100%;
+    width: 40px;
+    height: 40px;
+    margin: -10px 5px;
+}
+/*header end*/
+
+/*footer start*/
+footer{
+    width: 100%;
+    height: 120px;
+    background-color: white;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+.footer{
+    color: black;
+    text-align: center;
+}
+/*footer end*/
+
+/*index start*/
+.containertitle{
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 90% auto;   
+    grid-template-areas: ". content .";
+    height: 100%;
+}
+.contenttitle{
+    grid-area: content;
+    margin: auto;
+}
+.divider{
+	position: relative;
+	margin: 50px;
+	height: 1px;
+}
+.titlelogo{
+    display: flex;
+    flex-flow: row;
+    align-items: flex-end;
+    justify-content: center;
+    font-family: 'title';
+    font-size: 90px;
+    color: white;
+    padding-bottom: 10px;
+}
+.titledesc{
+    font-family: 'body';
+    color: white;
+    text-align: center;
+}
+.titlebutton{
+    grid-area: content;
+    display: flex;
+    flex-flow: row;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+#indexicon{
+    background-image: url("sprites/icon.png");
+    background-size: 100%;
+    width: 70px;
+    height: 70px;
+}
+.d1:before{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 5%;
+	right: 5%;
+	width: 90%;
+	height: 1px;
+	background-image: linear-gradient(to right, transparent, rgb(202, 177, 231), transparent);
+}
+.d2:before{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 5%;
+	right: 5%;
+	width: 90%;
+	height: 1px;
+	background-image: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
+}
+#buttonhome {
+    width: 24px;
+    height: 24px;
+    margin-left: -12px;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-animation: sdb04 2s infinite;
+    animation: sdb04 2s infinite;
+    box-sizing: border-box;
+}
+@-webkit-keyframes sdb04 {
+    0% {
+      -webkit-transform: rotate(-45deg) translate(0, 0);
+    }
+    20% {
+      -webkit-transform: rotate(-45deg) translate(-10px, 10px);
+    }
+    40% {
+      -webkit-transform: rotate(-45deg) translate(0, 0);
+    }
+}
+@keyframes sdb04 {
+    0% {
+      transform: rotate(-45deg) translate(0, 0);
+    }
+    20% {
+      transform: rotate(-45deg) translate(-10px, 10px);
+    }
+    40% {
+      transform: rotate(-45deg) translate(0, 0);
+    }
+}
+.homesection{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.sec-left-content{
+    grid-column: 1/3;
+    margin-right: 30px;
+}
+.sec-right-image{
+    grid-column: 3/7;
+    background-image: url("sprites/dogpic1.jpg");
+}
+.sec-right-content{
+    grid-column: 5/7;
+    margin-left: 30px;
+}
+.sec-left-image{
+    grid-column: 1/5;
+    background-image: url("sprites/dogpic2.jpg");
+}
+.himg{
+    background-size: cover;
+    min-height: 350px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+}
+.divide{
+    margin: 5px 8px;
+    margin-bottom: 60px;
+}
+.hsec{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.hsec > div.body {
+    padding: 18px 30px;
+}
+.hbrowse{
+    grid-column: 1/3;
+}
+.hrequest{
+    grid-column: 3/5;
+}
+.hplay{
+    grid-column: 5/7;
+}
+.topdog{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    margin-top: 40px;
+}
+.dogpost-home{
+    display: grid;
+    grid-template-rows: 0.7fr 0.3fr;
+    width: 200px;
+    min-height: 200px;
+    margin: 0px 8px;
+}
+.dogpicture-home{
+    grid-row: 1/2;
+    display: block;
+    margin: auto;
+}
+.pic-home{
+    object-fit: cover;
+    background-size: 100%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.dogname-home{
+    grid-row: 2/3;
+    text-align: center;
+}
+/*index end*/
+
+
+/*browse start*/
+.search{
+    display: grid;
+    grid-template-columns: 0.2fr 1fr 0.6fr 160px 0.2fr;
+    padding: 10px 40px;
+}
+.searchbar{
+    grid-column: 2/3;
+    font-size: 16px;
+}
+.sortby{
+    grid-column: 3/4;
+    font-size: 16px;
+    min-width: 100px;
+}
+.searchbutton{
+    grid-column: 4/5;
+    margin-left: 8px;
+    font-size: 16px;
+}
+.pagenum{
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+}
+.allposts{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.dogpost-browse{
+    text-decoration: none;
+    color: black;
+    display: grid;
+    grid-template-columns: 1.3fr 0.4fr;
+    grid-template-rows: 0.3fr 2.7fr 0.6fr 0.4fr;
+    grid-template-areas:
+        ". fave"
+        "img img"
+        "name name"
+        "breed breed";
+    width: 270px;
+    min-height: 350px;
+    margin: 12px;
+    padding: 5px 12px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+    background-size: 200% auto;
+    transition: 0.5s;
+}
+.dogpost-browse.female{
+    background-image: linear-gradient(to bottom right, rgb(248, 177, 233) 0%, rgb(255, 213, 238) 51%, rgb(243, 193, 239) 100%);
+}
+.dogpost-browse.male{
+    background-image: linear-gradient(to bottom right, rgb(169, 193, 245) 0%, rgb(209, 233, 255) 51%, rgb(169, 209, 247) 100%);
+}
+
+.dogpost-browse:hover{
+    background-position: right center;
+    cursor: pointer;
+}
+.dogpost-browse:hover > .dogpicture-browse > .pic-browse{
+    transform: scale(1.1);
+}
+.dogpicture-browse{
+    grid-area: img;
+    display: block;
+    margin: auto;
+    width: 220px;
+    height: 220px;
+    overflow: hidden;
+}
+.pic-browse{
+    object-fit: cover;
+    background-size: 100%;
+    width: 220px;
+    height: 220px;
+    transition: transform 0.2s ease;
+}
+.dogname-browse{
+    grid-area: name;
+    text-align: center;
+    word-wrap: break-word;
+}
+.dogbreed-browse{
+    grid-area: breed;
+    text-align: center;
+}
+.favorite{
+    grid-area: fave;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-right: 10px;
+}
+#favicon{
+    background-image: url("sprites/unfave.png");
+    background-size: 100%;
+    width: 30px;
+    height: 30px;
+    margin: 8px 10px;
+    transition: all 0.2s ease;
+}
+#favicon:hover{
+    cursor: pointer;
+    background-image: url("sprites/fave.png");
+    background-size: 100%;
+    width: 30px;
+    height: 30px;
+    margin: 8px 10px;
+}
+/*browse end*/
+
+/*requests start*/
+.reqmsg{
+    display: grid;
+    grid-template-columns: 0.7fr 0.3fr;
+    margin: 10px 30px;
+    padding: 10px 20px;
+}
+.reqmsgcontent{
+    grid-column: 1/2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.reqlabel{
+    font-family: 'heading';
+}
+.reqvalue{
+    padding-right:18px;
+    padding-top: 2px;
+    padding-bottom: 10px;
+}
+.reqlink{
+    text-decoration: none;
+    color: rgb(214, 110, 192);
+    transition: all 0.5s ease;
+}
+.reqlink:hover{
+    color: rgba(175, 101, 175, 0.7);
+    box-shadow: 0 2px 0px rgb(203, 170, 224);
+}
+.reqbuttons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px 0px;
+}
+.approvebox{
+    grid-column: 2/3;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.approval{
+    width: 50px;
+    height: 50px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+}
+.rejected{
+    background-image: url(sprites/no.png);
+}
+.accepted{
+    background-image: url(sprites/yes.png);
+}
+.pending{
+    background-image: url(sprites/pending.png);
+}
+.receivebuttons{
+    grid-column: 2/3;
+    margin:auto;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.receivebuttons > a{
+    margin: 8px 0px;
+}
+.receivebuttons:hover > div, .reqbuttons:hover > div{
+    cursor: pointer;
+}
+#reqsent, #reqreceived{
+    text-align: center;
+    margin: 10px;
+    transition: all 0.5s ease;
+    text-decoration: none;
+    color: black;
+}
+#reqsent:hover, #reqreceived:hover{
+    color: rgba(175, 101, 175, 0.7);
+}
+.reqdivider{
+	position: relative;
+	margin: 16px;
+	height: 1px;
+}
+.nonecenter{
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.3);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    padding: 150px 0px;
+}
+/*requests end*/
